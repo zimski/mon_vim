@@ -58,8 +58,8 @@ map <c-h> <c-w>h
 
 
 " easier moving between tabs
-"" map <Leader>n <esc>:tabprevious<CR>
-"" map <Leader>m <esc>:tabnext<CR>
+map <F7> <esc>:tabprevious<CR>
+map <F8> <esc>:tabnext<CR>
 
 
 " map sort function to a key
