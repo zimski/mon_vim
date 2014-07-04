@@ -88,9 +88,9 @@ color molokai
 
 " Enable syntax highlighting
 " You need to reload this file for the change to apply
-filetype off
-filetype plugin indent on
-syntax on
+""filetype off
+""filetype plugin indent on
+""syntax on
 
 
 " Showing line numbers and length
@@ -129,9 +129,9 @@ set smartcase
 
 " Disable stupid backup and swap files - they trigger too many events
 " for file system watchers
-"" set nobackup
-"" set nowritebackup
-"" set noswapfile
+set nobackup
+set nowritebackup
+set noswapfile
 
 
 " Setup Pathogen to manage your plugins
@@ -207,4 +207,14 @@ call pathogen#infect()
 " wget -O ~/.vim/ftplugin/python_editing.vim http://www.vim.org/scripts/download_script.php?src_id=5492
 "" set nofoldenable
 
-
+" Some Linux distributions set filetype in /etc/vimrc.
+" Clear filetype flags before changing runtimepath to force Vim to reload them.
+if exists("g:did_load_filetypes")
+  filetype off
+  filetype plugin indent off
+endif
+set runtimepath+=$GOROOT/misc/vim " replace $GOROOT with the output of: go env GOROOT
+filetype plugin indent on
+syntax on
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
+autocmd FileType go compiler go
