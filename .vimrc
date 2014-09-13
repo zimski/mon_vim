@@ -126,6 +126,9 @@ set incsearch
 set ignorecase
 set smartcase
 
+" Spell check
+"set nospell " active la correction orthographies
+"setlocal spell spelllang=en_us " met la correction en français
 
 " Disable stupid backup and swap files - they trigger too many events
 " for file system watchers
@@ -218,3 +221,10 @@ filetype plugin indent on
 syntax on
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
 autocmd FileType go compiler go
+
+" NerdTree conf"
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" control P
+let g:ctrlp_map = '<C-p>'
+let g:ctrlp_cmd = 'CtrlP'
