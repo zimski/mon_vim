@@ -1,3 +1,4 @@
+
 " Sample .vimrc file by Martin Brochhaus
 " Presented at PyCon APAC 2012
 
@@ -10,7 +11,6 @@
 
 " Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
-
 
 " Better copy & paste
 " When you want to paste large blocks of code into vim, press F2 before you
@@ -113,9 +113,9 @@ set undolevels=700
 
 
 " Real programmers don't use TABs but spaces
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set shiftround
 set expandtab
 
@@ -228,3 +228,12 @@ autocmd FileType go compiler go
 " control P
 let g:ctrlp_map = '<C-p>'
 let g:ctrlp_cmd = 'CtrlP'
+" resize split windows
+map <silent> <A-h> <C-w><
+map <silent> <A-j> <C-W>-
+map <silent> <A-k> <C-W>+
+map <silent> <A-l> <C-w>>
+let g:NERDTreeDirArrows=0
+set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
+set laststatus=2
+set cursorline
