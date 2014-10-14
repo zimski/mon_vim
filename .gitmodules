@@ -1,3 +1,6 @@
 [submodule "bundle/dracula-theme"]
 	path = bundle/dracula-theme
 	url = git@github.com:zenorocha/dracula-theme.git
+[submodule "/Users/c/.vim/bundle/vim-airline"]
+	path = /Users/c/.vim/bundle/vim-airline
+	url = https://github.com/bling/vim-airline
