@@ -29,8 +29,7 @@ set bs=2     " make backspace behave like normal again
 " Rebind <Leader> key
 " I like to have it here becuase it is easier to reach than the default and
 " it is next to ``m`` and ``n`` which I use for navigating between tabs.
-"" let mapleader = ","
-
+let mapleader = "\<Space>"
 
 " Bind nohl
 " Removes highlight of your last search
@@ -236,3 +235,8 @@ map <silent> <A-l> <C-w>>
 let g:NERDTreeDirArrows=0
 set laststatus=2
 set cursorline
+"" mapping keys
+imap jj <Esc> 
+" bind K to grep word under cursor
+nnoremap <Leader>p :Ag "\b<C-R><C-W>\b"<CR>
+nnoremap + :Ag<SPACE>
