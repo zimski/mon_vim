@@ -239,4 +239,12 @@ set cursorline
 imap jj <Esc> 
 " bind K to grep word under cursor
 nnoremap <Leader>p :Ag "\b<C-R><C-W>\b"<CR>
+nnoremap <Leader>h :bp<CR>
+nnoremap <Leader>l :bn<CR>
+nmap <leader>q :bp <BAR> bd #<CR>
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
 nnoremap + :Ag<SPACE>
+set splitbelow
+set splitright
+set hidden
