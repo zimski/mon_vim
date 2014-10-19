@@ -236,9 +236,8 @@ let g:NERDTreeDirArrows=0
 set laststatus=2
 set cursorline
 "" mapping keys
-imap jj <Esc> 
 " bind K to grep word under cursor
-nnoremap <Leader>p :Ag "\b<C-R><C-W>\b"<CR>
+nnoremap <Leader>p :Ag "\b<C-R><C-W>\b"<CR>:cw<CR>
 nnoremap <Leader>h :bp<CR>
 nnoremap <Leader>l :bn<CR>
 nmap <leader>q :bp <BAR> bd #<CR>
@@ -248,3 +247,6 @@ nnoremap + :Ag<SPACE>
 set splitbelow
 set splitright
 set hidden
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
+set nohls
