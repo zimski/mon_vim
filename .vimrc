@@ -238,8 +238,8 @@ set cursorline
 "" mapping keys
 " bind K to grep word under cursor
 nnoremap <Leader>p :Ag "\b<C-R><C-W>\b"<CR>:cw<CR>
-nnoremap <Leader>h :bp<CR>
-nnoremap <Leader>l :bn<CR>
+nnoremap <C-h> :bp<CR>
+nnoremap <C-l> :bn<CR>
 nmap <leader>q :bp <BAR> bd #<CR>
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
@@ -250,3 +250,13 @@ set hidden
 autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
 set nohls
+let g:gitgutter_eager = 0
+"powerline
+let g:airline_powerline_fonts = 1
+set guifont=Inconsolata\ for\ Powerline:h15
+let g:Powerline_symbols = 'fancy'
+set encoding=utf-8
+set t_Co=256
+set fillchars+=stl:\ ,stlnc:\
+set term=xterm-256color
+set termencoding=utf-8
