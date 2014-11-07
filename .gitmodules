@@ -7,3 +7,6 @@
 [submodule "bundle/ag"]
 	path = bundle/ag
 	url = https://github.com/ggreer/the_silver_searcher
+[submodule "bundle/ag_vim"]
+	path = bundle/ag_vim
+	url = https://github.com/rking/ag.vim
