@@ -57,8 +57,8 @@ map <c-h> <c-w>h
 
 
 " easier moving between tabs
-map <F7> <esc>:tabprevious<CR>
-map <F8> <esc>:tabnext<CR>
+noremap <F1> :bp<CR>
+noremap <F2> :bn<CR>
 
 
 " map sort function to a key
@@ -238,8 +238,8 @@ set cursorline
 "" mapping keys
 " bind K to grep word under cursor
 nnoremap <Leader>p :Ag "\b<C-R><C-W>\b"<CR>:cw<CR>
-nnoremap <C-h> :bp<CR>
-nnoremap <C-l> :bn<CR>
+"nnoremap <C-> :bn<CR>
+"nnoremap <C-)> :bp<CR>
 nmap <leader>q :bp <BAR> bd #<CR>
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
@@ -260,3 +260,4 @@ set t_Co=256
 set fillchars+=stl:\ ,stlnc:\
 set term=xterm-256color
 set termencoding=utf-8
+autocmd BufWritePre *.js :%s/\s\+$//e
