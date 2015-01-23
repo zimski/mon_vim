@@ -10,3 +10,9 @@
 [submodule "bundle/ag_vim"]
 	path = bundle/ag_vim
 	url = https://github.com/rking/ag.vim
+[submodule "/Users/c/.vim/bundle/vim-easymotion"]
+	path = /Users/c/.vim/bundle/vim-easymotion
+	url = https://github.com/Lokaltog/vim-easymotion
+[submodule "/Users/c/.vim/bundle/vim-ctrlp-tjump"]
+	path = /Users/c/.vim/bundle/vim-ctrlp-tjump
+	url = https://github.com/ivalkeen/vim-ctrlp-tjump.git

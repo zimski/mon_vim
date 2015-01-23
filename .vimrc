@@ -54,11 +54,13 @@ map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
-
+map <c-d> <c-]> 
 
 " easier moving between tabs
 noremap <F1> :bp<CR>
+cmap <F1> :bp<CR>
 noremap <F2> :bn<CR>
+cmap <F2> :bn<CR>
 
 
 " map sort function to a key
@@ -238,6 +240,11 @@ set cursorline
 "" mapping keys
 " bind K to grep word under cursor
 nnoremap <Leader>p :Ag "\b<C-R><C-W>\b"<CR>:cw<CR>
+"nnoremap <Leader>t :exec("CtrlPTag ".expand("<cword>"))<CR>
+"map <Leader>t :tselect
+"map <Leader>t :exec("tselect ".expand("<cword>"))<CR>
+map <Leader>t :CtrlPtjump<cr> 
+map <Leader>d :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 "nnoremap <C-> :bn<CR>
 "nnoremap <C-)> :bp<CR>
 nmap <leader>q :bp <BAR> bd #<CR>
@@ -261,3 +268,23 @@ set fillchars+=stl:\ ,stlnc:\
 set term=xterm-256color
 set termencoding=utf-8
 autocmd BufWritePre *.js :%s/\s\+$//e
+autocmd BufWritePre *.rb :%s/\s\+$//e
+" Easy motion
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+" Bi-directional find motion
+" Jump to anywhere you want with minimal keystrokes, with just one key binding.
+" `s{char}{label}`
+nmap s <Plug>(easymotion-s)
+" or
+" `s{char}{char}{label}`
+" Need one more keystroke, but on average, it may be more comfortable.
+nmap s <Plug>(easymotion-s2)
+
+" Turn on case sensitive feature
+let g:EasyMotion_smartcase = 1
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>w <Plug>(easymotion-bd-wl)
