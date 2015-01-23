@@ -10,10 +10,7 @@
 [submodule "bundle/ag_vim"]
 	path = bundle/ag_vim
 	url = https://github.com/rking/ag.vim
-[submodule "/Users/c/.vim/bundle/vim-easymotion"]
-	path = bundle/vim-easymotion
-	url = https://github.com/Lokaltog/vim-easymotion
-[submodule "/Users/c/.vim/bundle/vim-ctrlp-tjump"]
+[submodule "bundle/vim-ctrlp-tjump"]
 	path = bundle/vim-ctrlp-tjump
 	url = https://github.com/ivalkeen/vim-ctrlp-tjump.git
 [submodule "bundle/ctrlp.vim"]
@@ -25,7 +22,7 @@
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
-[submodule "/Users/c/.vim/bundle/vim-airline"]
+[submodule "bundle/vim-airline"]
 	path = bundle/vim-airline
 	url = https://github.com/bling/vim-airline
 [submodule "bundle/vim-fugitive"]
@@ -34,3 +31,9 @@
 [submodule "bundle/vim-jade"]
 	path = bundle/vim-jade
 	url = https://github.com/digitaltoad/vim-jade.git
+[submodule "bundle/vim-easymotion"]
+	path = bundle/vim-easymotion
+	url = https://github.com/Lokaltog/vim-easymotion
+[submodule "bundle/vim-gitgutter"]
+	path = bundle/vim-gitgutter
+	url = git://github.com/airblade/vim-gitgutter.git
