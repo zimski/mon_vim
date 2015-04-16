@@ -38,15 +38,19 @@ noremap <C-n> :nohl<CR>
 vnoremap <C-n> :nohl<CR>
 inoremap <C-n> :nohl<CR>
 
-" Quicksave command
-noremap <C-Z> :update<CR>
-vnoremap <C-Z> <C-C>:update<CR>
-inoremap <C-Z> <C-O>:update<CR>
-
 " Quick quit command
 "" noremap <Leader>e :quit<CR>  " Quit current window
 "" noremap <Leader>E :qa!<CR>   " Quit all windows
+" synatastics
+execute pathogen#infect()
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
 
 " bind Ctrl+<movement> keys to move around the windows, instead of using Ctrl+w + <movement>
 " Every unnecessary keystroke that can be saved is good for your health :)
@@ -57,10 +61,11 @@ map <c-h> <c-w>h
 map <c-d> <c-]> 
 
 " easier moving between tabs
-noremap <F1> :bp<CR>
-cmap <F1> :bp<CR>
-noremap <F2> :bn<CR>
-cmap <F2> :bn<CR>
+setlocal nobuflisted
+noremap <F2> :bprevious<CR>
+cmap <F2> :bprevious<CR>
+noremap <F3> :bnext<CR>
+cmap <F3> :bnext<CR>
 
 
 " map sort function to a key
@@ -244,6 +249,7 @@ nnoremap <Leader>p :Ag "\b<C-R><C-W>\b"<CR>:cw<CR>
 "map <Leader>t :tselect
 "map <Leader>t :exec("tselect ".expand("<cword>"))<CR>
 map <Leader>t :CtrlPtjump<cr> 
+map <Leader>ls :CtrlPBuffer<CR>
 map <Leader>d :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 "nnoremap <C-> :bn<CR>
 "nnoremap <C-)> :bp<CR>
@@ -268,6 +274,7 @@ set fillchars+=stl:\ ,stlnc:\
 set term=xterm-256color
 set termencoding=utf-8
 autocmd BufWritePre *.js :%s/\s\+$//e
+autocmd BufWritePre *.mustache :%s/\s\+$//e
 autocmd BufWritePre *.rb :%s/\s\+$//e
 " Easy motion
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
@@ -288,3 +295,10 @@ let g:EasyMotion_smartcase = 1
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 map <Leader>w <Plug>(easymotion-bd-wl)
+" send command to tmux
+let g:rspec_command = 'call Send_to_Tmux("bundle exec rspec -I helpers {spec}\n")'
+" vim-rspec mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
