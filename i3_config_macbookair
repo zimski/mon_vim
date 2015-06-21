@@ -28,7 +28,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+Q kill
-
+new_window pixel
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -42,8 +42,9 @@ bindcode 233 exec xbacklight +5
 # Volume controle
 bindcode 122 exec  amixer -c 1 set Master 5%-
 bindcode 123 exec  amixer -c 1 set Master 5%+
-exec --no-startup-id compton -b --backend glx --vsync opengl
+exec --no-startup-id compton --config /home/zimski/.config/compton.conf
 exec --no-startup-id nm-applet
+exec --no-startup-id syndaemon -i 1 -K -d
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id echo 30 | tee -a /sys/class/leds/smc\:\:kbd_backlight/brightness
 # change focus

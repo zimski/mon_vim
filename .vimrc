@@ -17,7 +17,7 @@ autocmd! bufwritepost .vimrc source %
 " paste. At the bottom you should see ``-- INSERT (paste) --``.
 
 set pastetoggle=<F2>
-set clipboard=unnamed
+set clipboard+=unnamedplus
 vnoremap <C-c> "+y
 vnoremap <C-v> "+gP 
 
@@ -301,3 +301,4 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
+map <C-n> :NERDTreeToggle<CR>
