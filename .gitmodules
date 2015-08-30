@@ -55,3 +55,6 @@
 [submodule "bundle/replaceWithRegister"]
 	path = bundle/replaceWithRegister
 	url = https://github.com/vim-scripts/ReplaceWithRegister.git
+[submodule "bundle/ferret"]
+	path = bundle/ferret
+	url = https://github.com/wincent/ferret.git
