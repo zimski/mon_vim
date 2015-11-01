@@ -10,6 +10,8 @@
 
 
 " Automatic reloading of .vimrc
+set shell=bash
+set relativenumber
 autocmd! bufwritepost .vimrc source %
 
 " Better copy & paste
@@ -18,8 +20,6 @@ autocmd! bufwritepost .vimrc source %
 
 set pastetoggle=<F2>
 set clipboard+=unnamedplus
-vnoremap <C-c> "+y
-vnoremap <C-v> "+gP 
 
 " Mouse and backspace
 set mouse=a  " on OSX press ALT and click
@@ -34,9 +34,9 @@ let mapleader = "\<Space>"
 " Bind nohl
 " Removes highlight of your last search
 " ``<C>`` stands for ``CTRL`` and therefore ``<C-n>`` stands for ``CTRL+n``
-noremap <C-n> :nohl<CR>
-vnoremap <C-n> :nohl<CR>
-inoremap <C-n> :nohl<CR>
+" noremap <C-n> :nohl<CR>
+" vnoremap <C-n> :nohl<CR>
+" inoremap <C-n> :nohl<CR>
 
 " Quick quit command
 "" noremap <Leader>e :quit<CR>  " Quit current window
@@ -84,14 +84,13 @@ vnoremap > >gv  " better indentation
 "" autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 "" au InsertLeave * match ExtraWhitespace /\s\+$/
 
-
 " Color scheme
 " mkdir -p ~/.vim/colors && cd ~/.vim/colors
 " wget -O wombat256mod.vim http://www.vim.org/scripts/download_script.php?src_id=13400
-"" set t_Co=256
+set t_Co=256
 "" color wombat256mod
 color molokai
-
+let g:rehash256 = 1
 " Enable syntax highlighting
 " You need to reload this file for the change to apply
 ""filetype off
@@ -250,7 +249,7 @@ nnoremap <Leader>p :Ag "\b<C-R><C-W>\b"<CR>:cw<CR>
 "map <Leader>t :exec("tselect ".expand("<cword>"))<CR>
 map <Leader>t :CtrlPtjump<cr> 
 map <Leader>ls :CtrlPBuffer<CR>
-map <Leader>d :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+"map <Leader>d :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 "nnoremap <C-> :bn<CR>
 "nnoremap <C-)> :bp<CR>
 nmap <leader>q :bp <BAR> bd #<CR>
@@ -266,7 +265,14 @@ set nohls
 let g:gitgutter_eager = 0
 "powerline
 let g:airline_powerline_fonts = 1
-set guifont=Inconsolata\ for\ Powerline:h15
+" set guifont=Inconsolata\ for\ Powerline:h15
+set guifont=Inconsolata-g\ for\ Powerline\ 10
+" set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 11
+" set guifont=Ubuntu\ Mono\ 12
+set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
+set guioptions-=r  "remove right-hand scroll bar
+set guioptions-=L  "remove left-hand scroll bar
 let g:Powerline_symbols = 'fancy'
 set encoding=utf-8
 set t_Co=256
@@ -276,37 +282,55 @@ autocmd BufWritePre *.js :%s/\s\+$//e
 autocmd BufWritePre *.mustache :%s/\s\+$//e
 autocmd BufWritePre *.rb :%s/\s\+$//e
 " Easy motion
-let g:EasyMotion_do_mapping = 0 " Disable default mappings
+" let g:EasyMotion_do_mapping = 0 " Disable default mappings
 
 " Bi-directional find motion
 " Jump to anywhere you want with minimal keystrokes, with just one key binding.
 " `s{char}{label}`
-nmap s <Plug>(easymotion-s)
+" nmap s <Plug>(easymotion-s)
 " or
 " `s{char}{char}{label}`
 " Need one more keystroke, but on average, it may be more comfortable.
-nmap s <Plug>(easymotion-s2)
+" nmap s <Plug>(easymotion-s2)
 
 " Turn on case sensitive feature
-let g:EasyMotion_smartcase = 1
+" let g:EasyMotion_smartcase = 1
 
 " JK motions: Line motions
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 map <Leader>w <Plug>(easymotion-bd-wl)
 " send command to tmux
-let g:rspec_command = 'call Send_to_Tmux("bundle exec rspec -I helpers {spec}\n")'
+"let g:rspec_command = 'call Send_to_Tmux("bundle exec rspec -I helpers {spec}\n")'
 " vim-rspec mappings
+" tnoremap <Esc><Esc> <C-\><C-n>
 map <C-n> :NERDTreeToggle<CR>
-" " Copy to clipboard
-vnoremap  <leader>y  "+y
-nnoremap  <leader>Y  "+yg_
-nnoremap  <leader>y  "+y
-nnoremap  <leader>yy  "+yy
 
-" " Paste from clipboard
-nnoremap <leader>p "+p
-nnoremap <leader>P "+P
-vnoremap <leader>p "+p
-vnoremap <leader>P "+P
-tnoremap <Esc><Esc> <C-\><C-n>
+" disable arrow keys
+nnoremap <up>    <nop>
+nnoremap <down>  <nop>
+nnoremap <left>  <nop>
+nnoremap <right> <nop>
+inoremap <up>    <nop>
+inoremap <down>  <nop>
+inoremap <left>  <nop>
+inoremap <right> <nop>
+" AUTO CWD
+" let g:autocwd_patternwd_pairs = [
+"     \['*.vim', '%:p:h'],
+"     \['*/chef-repo/*', '/home/zimski/Fasterize/chef-repo/'],
+"     \['*/FasterizeEngine/*', '/home/zimski/Fasterize/FasterizeEngine/'],
+"     \['*/jenkins/*', '/home/zimski/Fasterize/jenkins/'],
+"     \['*/fastapi/*', '/home/zimski/Fasterize/fastapi/'],
+"     \['*/node/*', '/home/zimski/Fasterize/node/'],
+"     \['*/fstrz/*', '/home/zimski/Fasterize/fstrz/'],
+"     \['*/customer-conf/*', '/home/zimski/Fasterize/customer-conf/'],
+"     \['*/fasterize.com/*', '/home/zimski/Fasterize/fasterize.com/'],
+"     \['*/cluster-master/*', '/home/zimski/Fasterize/cluster-master/'],
+"     \['*/zimo/*', '/home/zimski/Fasterize/zimo/'],
+"     \['*/fjd/*', '/home/zimski/Fasterize/fjd/'],
+"     \]
+" vim rooter
+let g:rooter_use_lcd = 1
+" session manager
+let g:session_autosave = 'yes'

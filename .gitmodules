@@ -58,3 +58,21 @@
 [submodule "bundle/ferret"]
 	path = bundle/ferret
 	url = https://github.com/wincent/ferret.git
+[submodule "bundle/AutoCWD"]
+	path = bundle/AutoCWD
+	url = https://github.com/yssl/AutoCWD.vim.git
+[submodule "fonts"]
+	path = fonts
+	url = https://github.com/powerline/fonts.git
+[submodule "bundle/vim-rooter"]
+	path = bundle/vim-rooter
+	url = https://github.com/airblade/vim-rooter.git
+[submodule "bundle/vim-session"]
+	path = bundle/vim-session
+	url = https://github.com/xolox/vim-session.git
+[submodule "bundle/vim-misc"]
+	path = bundle/vim-misc
+	url = https://github.com/xolox/vim-misc.git
+[submodule "bundle/vimgit"]
+	path = bundle/vimgit
+	url = https://github.com/jreybert/vimagit.git
