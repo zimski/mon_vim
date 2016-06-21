@@ -1,0 +1,1 @@
+/home/zimski/mon_vim/.vimrc

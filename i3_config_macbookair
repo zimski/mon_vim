@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
-font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+font pango:DejaVu Sans Mono, Awesome 8
 # The font above is very space-efficient, that is, it looks good, sharp and
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
@@ -24,7 +24,7 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec gnome-terminal
 
 # kill focused window
 bindsym $mod+Shift+Q kill
@@ -45,7 +45,10 @@ bindcode 123 exec  amixer -c 1 set Master 5%+
 exec --no-startup-id compton --config /home/zimski/.config/compton.conf
 exec --no-startup-id nm-applet
 exec --no-startup-id syndaemon -i 1 -K -d
+exec --no-startup-id xrandr --auto --output HDMI1 --left-of eDP1
 exec --no-startup-id nitrogen --restore
+exec --no-startup-id setxkbmap us '' compose:ralt
+exec --no-startup-id /home/zimski/.local/bin//powerline-daemon
 exec --no-startup-id echo 30 | tee -a /sys/class/leds/smc\:\:kbd_backlight/brightness
 # change focus
 #bindsym $mod+j focus left
@@ -157,8 +160,22 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+        status_command /usr/bin/conky-i3bar
+        #status_command i3status
 }
 
 # spotify
 for_window [class="^Spotify( Premium)?$"] floating enable
+for_window [class="^Popcorn-Time"] floating enable
+
+# assign workspace to specific screen
+workspace 1 output HDMI1
+workspace 2 output HDMI1
+workspace 3 output HDMI1
+workspace 4 output HDMI1
+workspace 5 output HDMI1
+workspace 6 output HDMI1
+workspace 7 output HDMI1
+workspace 8 output HDMI1
+workspace 9 output eDP1
+workspace 10 output eDP1
